@@ -5,6 +5,9 @@ Chat con PHP y WebSockets
 
 Creado por Angel Kurten :: http://angelkurten.com
 
+Colaborador:
+Lorenzo Antonio - https://www.facebook.com/laom.anti.yankee?fref=ufi
+
 Ver Tutoriales
 
 Parte 1: http://blog.angelkurten.com/2014/05/websockets-con-php-parte-1.html
