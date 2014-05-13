@@ -39,6 +39,10 @@ $user_colour = array_rand($colours);
 
 <script language="javascript" type="text/javascript">  
 $(document).ready(function(){
+
+	//codigo agregado por Lorenzo Antonio
+	$('#message').focus();
+
 	//create a new WebSocket object.
 	var wsUri = "ws://localhost:8080/websockets/server.php"; 	
 	websocket = new WebSocket(wsUri); 
@@ -93,12 +97,18 @@ $(document).ready(function(){
 	websocket.onerror	= function(ev){$('#message_box').append("<div class=\"system_error\">Error - "+ev.data+"</div>");}; 
 	websocket.onclose 	= function(ev){$('#message_box').append("<div class=\"system_msg\">Conexion Cerrada</div>");}; 
 });
+
+//codigo agregado por Lorenzo Antonio
+function validateEnter(e) {
+		var key=e.keyCode || e.which;
+		if (key==13){ $('#send-btn').click() }
+}
 </script>
 <div class="chat_wrapper">
 <div class="message_box" id="message_box"></div>
 <div class="panel">
-<input type="text" name="name" id="name" placeholder="Tu Nombre" maxlength="10" style="width:20%"  />
-<input type="text" name="message" id="message" placeholder="Tu Mensaje" maxlength="80" style="width:60%" />
+<input type="text" name="name" id="name" value="<?php $numerodado = rand(1,1000); echo "Anon".$numerodado; ?>" maxlength="10" style="width:20%"  />
+<input type="text" name="message" onkeyup="validateEnter(event)" id="message" placeholder="Tu Mensaje" maxlength="80" style="width:60%" />
 <button id="send-btn">Enviar</button>
 </div>
 </div>
